@@ -1,0 +1,131 @@
+/* ==========================================================================
+   1. GLOBAL RESETS & BASE VARIABLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: palevioletred; /* Keeping your core canvas theme color */
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. APP CONTAINER (CENTRALIZED GLASS CARD)
+   ========================================================================== */
+.container {
+    background: rgba(209, 210, 207, 0.12); /* Modern frosted-glass finish */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    
+    width: 100%;
+    max-width: 520px; /* Perfectly bounds the layout width on desktop */
+    padding: 40px 30px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    
+    /* Layout Lock: Forces layout elements to stack strictly vertically */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   3. THE QUOTE LAYOUT BOX (STABILIZER BLOCK)
+   ========================================================================== */
+.quote-box {
+    /* Locks structural space so text height shifts never move your button */
+    min-height: 160px; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+h1 {
+    color: aqua; /* Preserving your signature aesthetic text color */
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 10px rgba(7, 3, 3, 0.1);
+    word-wrap: break-word;
+     text-shadow: 
+        -1px -1px 0 rgba(0, 0, 0, 0.2),  
+         1px -1px 0 rgba(0, 0, 0, 0.2);
+}    
+
+/* ==========================================================================
+   4. PREMIUM HIGH-INTERACTION BUTTON
+   ========================================================================== */
+button {
+    background: #ffffff;
+    color: palevioletred; /* Button text beautifully punches through with background color */
+    border: none;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    
+    /* Smooth transition for modern micro-animations */
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.2s ease, 
+                background-color 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-3px); /* Interactive click-me hover float */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    background: #fff3f5; /* Subtle layout warmth on hover */
+}
+
+button:active {
+    transform: translateY(-1px); /* Tactile click response */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   5. DEEP RESPONSIVE SCALING (MOBILE ADAPTATION)
+   ========================================================================== */
+@media (max-width: 480px) {
+    body {
+        padding: 16px;
+    }
+
+    .container {
+        padding: 35px 20px; /* Margins shrink slightly on tiny screens to save content space */
+        border-radius: 20px;
+    }
+
+    .quote-box {
+        min-height: 180px; /* Gives long mobile stacked text columns extra baseline structural height */
+        margin-bottom: 25px;
+    }
+
+    h1 {
+        font-size: 21px; /* Downscales font dynamically so titles don't overflow viewports */
+        line-height: 1.4;
+    }
+
+    button {
+        width: 100%; /* Spans button cleanly across card for zero-friction thumb tapping */
+        padding: 14px 20px;
+        font-size: 14px;
+    }
+}
