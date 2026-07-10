@@ -7,5 +7,6 @@ form.addEventListener('submit',(e)=>{
     const l2=girl.value.length;
     const result =Math.pow(l1+l2,3)%101;
     console.log(result);
-    document.querySelector('h2').textContent = `RESULT : ${result}`;
+    document.querySelector('h2').textContent = `LOVE : ${result}%`;
+    form.reset();
 })
