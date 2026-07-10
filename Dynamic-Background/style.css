@@ -1,0 +1,93 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 1rem;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #2d3748;
+  letter-spacing: -0.025em;
+}
+
+/* Parent Container: Turning it into a clean, responsive grid layout */
+#parent {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  width: 100%;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Button Styling: Making them look premium */
+button {
+  all: unset; /* Clear default browser button clunkiness */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  
+  /* Smooth transitions for animations */
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.2s ease, 
+              filter 0.2s ease;
+  
+  /* Subtle border to keep bright colors distinct from light backgrounds */
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* Hover Effects */
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  filter: brightness(1.08); /* Makes the color pop slightly on hover */
+}
+
+/* Click/Active State Effect */
+button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  filter: brightness(0.95);
+}
+
+/* Responsive adjustments for tiny screens */
+@media (max-width: 480px) {
+  #parent {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 8px;
+    padding: 1rem;
+  }
+  
+  button {
+    padding: 10px 6px;
+    font-size: 0.75rem;
+  }
+}
